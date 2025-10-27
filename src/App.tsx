@@ -1,25 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+// Importa os componentes reutilizáveis
+import Cabecalho from './componentes/Cabecalho/Cabecalho';
+import Rodape from './componentes/Rodape/Rodape';
+// Importa as páginas 
+import PaginaInicio from './paginas/PaginaInicio/PaginaInicio';
+import PaginaDetalhes from './paginas/PaginaDetalhes/PaginaDetalhes';
+import PaginaTipos from './paginas/PaginaTipos/PaginaTipos';
+// Aqui vamos criar as rotas das Páginas
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Cabecalho />
+      <main className="container my-4" style={{ minHeight: '80vh' }}>
+        <Routes> 
+          <Route path="/" element={<PaginaInicio />} />
+          <Route path="/pokemon/:nome" element={<PaginaDetalhes />} />
+          <Route path="/tipos" element={<PaginaTipos />} />
+        </Routes>
+      </main>
+
+      <Rodape />
+    </BrowserRouter>
   );
 }
 
