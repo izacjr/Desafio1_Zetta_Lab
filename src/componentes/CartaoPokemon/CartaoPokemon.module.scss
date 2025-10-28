@@ -1,0 +1,98 @@
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins";
+
+//O cartão como um todo
+.cartaoPokemon {
+  border-radius: 1.25rem; 
+  border: 1px solid #eee;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); 
+  overflow: hidden; 
+  background-color: #fff; 
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+}
+
+// O topo do cartão (onde fica a imagem)
+.areaImagem {
+  position: relative;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #eee;
+  padding: 1rem;
+  
+}
+
+//Classe para a bola colorida
+.bolaColorida {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    z-index: 1; //Ficará atrás da imagem do Pokémon
+}
+
+
+//A imagem do Pokémon
+.imagemPokemon {
+  width: 110px; 
+  height: 110px;
+  object-fit: contain;
+  image-rendering: pixelated; 
+  z-index: 2; 
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); 
+}
+
+//O corpo do cartão (informações)
+.corpoCartao {
+  padding: 1.5rem; 
+  text-align: center;
+}
+
+//O nome
+.nomePokemon {
+  font-size: 1.5rem; 
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 0.25rem; 
+}
+
+//O ID
+.idPokemon {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #999;
+  margin-bottom: 0.5rem; 
+}
+
+//O tipo
+.tipoPokemon {
+  font-size: 0.9rem;
+  color: #777;
+  text-transform: capitalize;
+  margin-bottom: 1.25rem; 
+
+  span {
+    font-weight: 700;
+  }
+}
+
+.botaoDetalhes {
+  background-color: #E63946;
+  border-color: #E63946;
+  color: #fff; 
+
+  &:hover {
+    background-color: #c9303e;
+    border-color: #be2d3a;
+  }
+}

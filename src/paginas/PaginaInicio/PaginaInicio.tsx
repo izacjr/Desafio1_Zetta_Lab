@@ -4,7 +4,7 @@ import { buscarListaPokemon } from '../../servicos/servicoPokemon';
 import type { IRecursoNomeadoAPI } from '../../tipos/pokemon.tipos';
 import { CartaoPokemon } from '../../componentes/CartaoPokemon/CartaoPokemon';
 
-const LIMITE_POR_PAGINA = 24; //Quantos Pokémon carregar por vez
+const LIMITE_POR_PAGINA = 3; //Quantos Pokémon carregar por vez
 
 function PaginaInicio() {
   const [listaPokemon, setListaPokemon] = useState<IRecursoNomeadoAPI[]>([]);
@@ -97,7 +97,7 @@ function PaginaInicio() {
         </div>
       ) : (
         //Grid de cartões
-        <div className="row g-3">
+        <div className="row g-3 justify-content-center" >
           {listaPokemon.map((pokemon) => (
             <div 
               key={pokemon.name} 
