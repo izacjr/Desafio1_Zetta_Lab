@@ -6,6 +6,7 @@ import Rodape from './componentes/Rodape/Rodape';
 import PaginaInicio from './paginas/PaginaInicio/PaginaInicio';
 import PaginaDetalhes from './paginas/PaginaDetalhes/PaginaDetalhes';
 import PaginaTipos from './paginas/PaginaTipos/PaginaTipos';
+import PaginaSobre from './paginas/PaginaSobre/PaginaSobre';
 //Aqui vamos criar as rotas das Páginas
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" element={<PaginaInicio />} />
           <Route path="/pokemon/:nome" element={<PaginaDetalhes />} />
           <Route path="/tipos" element={<PaginaTipos />} />
+          <Route path="/sobre" element={<PaginaSobre />} />
         </Routes>
       </main>
 

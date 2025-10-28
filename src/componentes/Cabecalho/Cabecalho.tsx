@@ -53,6 +53,11 @@ const Cabecalho: React.FC = () => {
                 Tipos
               </NavLink>
             </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/sobre">
+                Sobre
+              </NavLink>
+            </li>
           </ul>
         </div>
       </div>
