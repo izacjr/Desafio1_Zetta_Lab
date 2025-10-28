@@ -1,0 +1,40 @@
+.botaoVoltar {
+  background-color: #E63946;
+  border-color: #E63946;
+
+  //Cor do texto
+  color: #fff; 
+
+  //Efeito hover 
+  &:hover {
+    background-color: #c9303e;
+    border-color: #be2d3a;
+  }
+}
+
+.areaImagem {
+  position: relative; 
+  background-color: #f8f9fa;
+  overflow: hidden; //Garante que a bola não vaze 
+}
+
+//bola colorida 
+.bolaColorida {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px; //Tamanho maior
+    height: 300px;
+    border-radius: 50%;
+    z-index: 1; //Fica atrás da imagem 
+    opacity: 0.7; 
+}
+
+// A imagem principal do Pokémon 
+.imagemPokemon {
+  position: relative; 
+  z-index: 2; //Fica à FRENTE da bola
+  filter: drop-shadow(0 0 0.5rem rgba(0,0,0,0.2));
+  image-rendering: pixelated; //Garante que a arte pixelada fique nítida 
+}

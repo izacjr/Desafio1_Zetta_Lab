@@ -1,19 +1,23 @@
-import { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom'; 
+import { useState, useEffect } from 'react'; 
+//Remove useLocation e useRef
 import { buscarListaPokemon } from '../../servicos/servicoPokemon';
 import type { IRecursoNomeadoAPI } from '../../tipos/pokemon.tipos';
 import { CartaoPokemon } from '../../componentes/CartaoPokemon/CartaoPokemon';
 
-const LIMITE_POR_PAGINA = 3; //Quantos Pokémon carregar por vez
+const LIMITE_POR_PAGINA = 3; 
+const CHAVE_STORAGE = 'pokedexOffset'; 
 
 function PaginaInicio() {
   const [listaPokemon, setListaPokemon] = useState<IRecursoNomeadoAPI[]>([]);
-  const [offset, setOffset] = useState(0); 
+
+  //Ler o offset inicial do sessionStorage
+  const [offset, setOffset] = useState(() => {
+    const offsetGuardado = sessionStorage.getItem(CHAVE_STORAGE);
+    return offsetGuardado ? parseInt(offsetGuardado, 10) : 0;
+  });
+
   const [totalPokemon, setTotalPokemon] = useState(0);
   const [carregando, setCarregando] = useState(true);
-
-  //Pega a 'location' da rota atual
-  const location = useLocation();
 
   //buscar os Pokémon toda vez que o 'offset' mudar
   useEffect(() => {
@@ -23,6 +27,8 @@ function PaginaInicio() {
         const dados = await buscarListaPokemon(LIMITE_POR_PAGINA, offset);
         setListaPokemon(dados.results);
         setTotalPokemon(dados.count);
+        // Guarda o offset atual no sessionStorage
+        sessionStorage.setItem(CHAVE_STORAGE, offset.toString());
       } catch (erro) {
         console.error("Falha ao buscar lista de Pokémon", erro);
       } finally {
@@ -32,16 +38,7 @@ function PaginaInicio() {
     carregarPokemon();
   }, [offset]); //Dependência: 'offset'
 
-  //Reseta para a página 1 se o usuário clicar em <Link>
-  useEffect(() => {
-    //location.key muda toda vez que um <Link> é clicado.
-    //Se o offset não for 0, voltamos para a página 1.
-    if (offset !== 0) {
-      setOffset(0);
-    }
-  }, [location.key]); //Dependência: a 'key' da rota
-
-  //Funções de Paginação
+  //Funções de Paginação (sem alterações)
   const irParaProxima = () => {
     if (offset + LIMITE_POR_PAGINA < totalPokemon) {
       setOffset(offset + LIMITE_POR_PAGINA);
@@ -54,24 +51,23 @@ function PaginaInicio() {
     }
   };
 
-  //Cálculos para exibição
+  //Cálculos para exibição (sem alterações)
   const paginaAtual = (offset / LIMITE_POR_PAGINA) + 1;
   const totalPaginas = Math.ceil(totalPokemon / LIMITE_POR_PAGINA);
   
-  //Variáveis de estado para desabilitar botões
+  //Variáveis de estado para desabilitar botões (sem alterações)
   const estaDesabilitadoAnterior = offset === 0 || carregando;
   const estaDesabilitadoProxima = offset + LIMITE_POR_PAGINA >= totalPokemon || carregando;
 
   return (
     <div>
-      <h1 className="mb-4 text-center">Minha Pokédex</h1>
+      <h1 className="titulo-pokedex">Minha Pokédex</h1> 
       
       <div className="d-flex justify-content-between align-items-center mb-4 p-2 rounded bg-light shadow-sm">
         <button 
           className="btn btn-primary" 
           onClick={irParaAnterior}
-          disabled={estaDesabilitadoAnterior} //Usa a variável
-        
+          disabled={estaDesabilitadoAnterior} 
           style={{ cursor: estaDesabilitadoAnterior ? 'not-allowed' : 'pointer' }}
         >
           &laquo; Anterior
@@ -96,12 +92,10 @@ function PaginaInicio() {
           </div>
         </div>
       ) : (
-        //Grid de cartões
         <div className="row g-3 justify-content-center" >
           {listaPokemon.map((pokemon) => (
             <div 
               key={pokemon.name} 
-              //Classes de responsividade do Bootstrap
               className="col-12 col-sm-6 col-md-4 col-lg-3"
             >
               <CartaoPokemon nome={pokemon.name} url={pokemon.url} />
@@ -114,4 +108,3 @@ function PaginaInicio() {
 }
 
 export default PaginaInicio;
-
