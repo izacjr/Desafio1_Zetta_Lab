@@ -61,6 +61,12 @@ function PaginaInicio() {
       <div className="mb-4 p-4 rounded-3 bg-white shadow">
 
         <h1 className="titulo-pokedex text-center mb-4">Pokédex</h1>
+        <h4 className="text-muted text-center mb-3">
+          Bem vindo(a) à Pokédex! Aqui você pode encontrar os pokémons registrados.
+        </h4>
+         <p className="text-muted text-center mb-3">
+          Para saber os status de um Pokémon clique em "Detalhes".
+        </p>
         <div className="d-flex justify-content-between align-items-center mb-4 p-2 rounded bg-light">
           <button
             className={`btn ${estilos.botaoPaginacao}`}
