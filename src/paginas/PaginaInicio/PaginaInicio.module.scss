@@ -1,0 +1,22 @@
+.botaoPaginacao {
+  //Cor vermelha "Pokémon"
+  background-color: #E63946;
+  border-color: #E63946;
+
+  //Cor do texto
+  color: #fff; 
+
+  //Efeito hover (cor ligeiramente mais escura)
+  &:hover {
+    background-color: #c9303e;
+    border-color: #be2d3a;
+  }
+
+  //Estilo para quando o botão está desabilitado
+  &:disabled {
+    background-color: #f8a5ac; 
+    border-color: #f8a5ac;
+    opacity: 0.65;
+    cursor: not-allowed; 
+  }
+}

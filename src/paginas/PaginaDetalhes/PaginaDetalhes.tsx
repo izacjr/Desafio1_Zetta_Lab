@@ -64,8 +64,7 @@ function PaginaDetalhes() {
       </div>
     );
   }
-
-  // --- Renderização de Erro ---
+  
   if (erro) {
     return (
       <div className="text-center">
@@ -90,15 +89,12 @@ function PaginaDetalhes() {
 
   return (
     <div>
-      {/* *** MUDANÇA 4: O Link torna-se um 'button' *** */}
       <button 
-        onClick={() => navigate(-1)} // navigate(-1) significa "voltar"
+        onClick={() => navigate(-1)} 
         className={`btn ${estilos.botaoVoltar} mb-3`}
       >
         &laquo; Voltar para a Lista
       </button>
-      
-      {/* O resto do card (sem alterações) */}
       <div className="card shadow-lg">
         <div className="card-header text-center p-3">
           <h1 className="text-capitalize mb-0">

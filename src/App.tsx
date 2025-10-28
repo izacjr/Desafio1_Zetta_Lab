@@ -11,7 +11,7 @@ function App() {
   return (
     <BrowserRouter>
       <Cabecalho />
-      <main className="container my-4" style={{ minHeight: '80vh' }}>
+      <main className="container my-4" style={{ minHeight: '80vh' }} conteudo-principal>
         <Routes> 
           <Route path="/" element={<PaginaInicio />} />
           <Route path="/pokemon/:nome" element={<PaginaDetalhes />} />

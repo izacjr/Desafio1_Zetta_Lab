@@ -75,3 +75,18 @@ $type-colors: (
   text-transform: capitalize;
   border: 1px solid rgba(0,0,0,0.05);
 }
+
+//Vamos fixar o rodape com isto
+html, body {
+  height: 100%;
+}
+
+#root {
+  display: flex;
+  flex-direction: column; 
+  min-height: 100vh;
+}
+
+.conteudo-principal {
+  flex-grow: 1; 
+}
