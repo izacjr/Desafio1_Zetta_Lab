@@ -1,46 +1,81 @@
-# Getting Started with Create React App
+# Minha Pokédex (Desafio Zetta Lab)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+Este projeto foi desenvolvido pelo estudante Izac Moreira Souza Junior como parte do desafio técnico inicial do Zetta Lab, cujo objetivo é avaliar a organização do código, boas práticas de desenvolvimento e capacidade de resolução de problemas.
 
-In the project directory, you can run:
+A aplicação consiste numa Pokédex responsiva, que consome dados da [PokeAPI](https://pokeapi.co/) e apresenta visualmente as cartas de Pokémon, incluindo informações detalhadas de cada um e a possibilidade de filtragem por tipo.
 
-### `npm start`
+## Funcionalidades
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+* **Listagem de Pokémon:** Exibe os Pokémon de forma paginada.
+* **Detalhes do Pokémon:** Mostra informações detalhadas, incluindo estatísticas, tipos e imagem.
+* **Filtragem por Tipo:** Permite visualizar Pokémon pertencentes a um tipo específico.
+* **Página Sobre:** Apresenta informações sobre o projeto e as tecnologias utilizadas.
+* **Design Responsivo:** Adapta-se a diferentes tamanhos de ecrã (mobile, tablet, desktop).
+* **Navegação Persistente:** Lembra a página atual ao voltar da página de detalhes.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Tecnologias e Ferramentas
 
-### `npm test`
+* **Framework:** React (com Vite)
+* **Linguagem:** TypeScript
+* **Estilização:** SASS/SCSS e Bootstrap 5+
+* **Requisições API:** Axios
+* **Roteamento:** React Router DOM
+* **Controlo de versão:** Git
+* **API pública:** PokeAPI
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Estrutura e Implementação
 
-### `npm run build`
+O projeto foi desenvolvido com foco em componentização, reutilização e clareza de código.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* O menu (`Cabecalho`) e o rodapé (`Rodape`) foram implementados como componentes independentes.
+* Foram criadas quatro rotas principais:
+    * `/` (Home): listagem geral das cartas Pokémon.
+    * `/pokemon/:nome` (Detalhes): exibição de informações específicas de cada carta.
+    * `/tipos` (Filtro por tipo): listagem dinâmica de cartas conforme o tipo selecionado.
+    * `/sobre` (Sobre): informações sobre o projeto.
+* O layout é totalmente responsivo, seguindo os breakpoints do Bootstrap.
+* O código utiliza nomes de componentes, ficheiros e variáveis em português para clareza no contexto do desafio.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Objetivo do Desafio
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+O desafio teve como propósito demonstrar:
 
-### `npm run eject`
+* A capacidade de consumir e manipular dados de APIs REST (JSON).
+* O domínio em estruturar projetos front-end modernos com React e TypeScript.
+* O uso adequado de estilização com SASS e Bootstrap.
+* A implementação de layout responsivo.
+* O uso adequado de versionamento de código com Git, utilizando commits descritivos e bem fragmentados.
+* A criatividade e autonomia na definição de layout, cores e organização visual da aplicação.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Como Executar o Projeto
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Pré-requisitos
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+* [Node.js](https://nodejs.org/) (versão LTS recomendada)
+* [npm](https://www.npmjs.com/) caso não venha no Node
+* [Git](https://git-scm.com/)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Instalação
 
-## Learn More
+1.  Clone o repositório 
+    ```bash
+    git clone https://github.com/izacjr/Desafio1_Zetta_Lab.git minha-pokedex
+    ```
+2.  Navegue até a pasta do projeto:
+    ```bash
+    cd minha-pokedex
+    ```
+3.  Instale as dependências:
+    ```bash
+    npm install
+    ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Execução
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1.  Inicie o servidor de desenvolvimento Vite:
+    ```bash
+    npm run dev
+    ```
+
+2.  Abra o seu navegador e aceda a `http://localhost:3000` (ou a porta indicada no terminal).
